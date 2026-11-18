@@ -16,7 +16,7 @@ spec:
       serviceAccountName: status-page
       containers:
         - name: status-page
-          image: ghcr.io/benzac708/status-page:91bd49288dc8279dc80b6576aec5265f4e889e80
+          image: ghcr.io/benzac708/status-page:fdb419ede70073d4534cd56f0750ee94c1fd3a46
           ports:
             - containerPort: 8000
           readinessProbe:
