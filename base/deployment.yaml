@@ -19,8 +19,22 @@ spec:
           image: ghcr.io/benzac708/status-page:fdb419ede70073d4534cd56f0750ee94c1fd3a46
           ports:
             - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 15
           readinessProbe:
             httpGet:
               path: /healthz
               port: 8000
             initialDelaySeconds: 5
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi
